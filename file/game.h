@@ -43,7 +43,9 @@ class game
 
 		int ChooseSubItem();
 
-	protected:
+		void pause();
+
+	private:
 
 		square::difficulty diff;
 

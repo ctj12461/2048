@@ -35,7 +35,7 @@ class square
 
 		void Clear();
 		
-	protected:
+	private:
 		
 		int gamesquare[4][4];
 		

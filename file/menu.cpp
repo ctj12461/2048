@@ -84,8 +84,9 @@ int menu::out_menu(string arr[], int highest, int left, int right, int top) {
 
 	menupoint.write(20, 0, "2048");
 
-	ox = ((left + right) / 2) - (arr[0].size() / 2);
+	ox = ((left + right) / 2) - (static_cast<int>(arr[0].size()) / 2);
 
+	menupoint.set_color(point::C_CYAN);
 	menupoint.write(ox, oy, arr[0]);     //输出菜单标题
 
 	for (int i = left; i <= right; i++) {
@@ -93,25 +94,31 @@ int menu::out_menu(string arr[], int highest, int left, int right, int top) {
 		menupoint.write(i, oy + 1, "─");    //输出菜单标题与菜单项之间的分割线
 
 	}
+	
+	menupoint.set_color(point::CI_GREEN);
 
 	for (int i = 1; i <= highest; i++) {      //输出菜单项
 
-		ox = ((left + right) / 2) - (arr[i].size() / 2);
+		ox = ((left + right) / 2) - (static_cast<int>(arr[i].size()) / 2);
 		oy = top + i + 1;
 
 		menupoint.write(ox, oy, arr[i]);
 	
 	}
-		
+	
+	menupoint.set_color(point::C_WHITE);
+
 	do {
 			
-		menupoint.write(0, oy + 2, "Please press the index.\n");
+		menupoint.write(0, oy + 2, "Please press the index.\n");	//提示
 
 		cin >> input_index;
 
 		if (input_index < 1 || input_index > highest) {
 
-			menupoint.write(0, 21, "Please don't press any other key.");
+			menupoint.set_color(point::CI_RED);
+			menupoint.write(0, 21, "Please don't press any other key.");		//输入错误
+			menupoint.set_color(point::C_WHITE);
 
 		}
 

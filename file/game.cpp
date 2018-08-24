@@ -23,6 +23,8 @@ void game::run(){
 
 void game::welcome()
 {
+	
+	game_point.set_color(point::CI_CYAN);
 
 	cout << endl;
 	cout << endl;	
@@ -39,10 +41,11 @@ void game::welcome()
 	cout << endl;
 	cout << endl;
 	cout << "             Welcome to 2048!" << endl;
-	cout << "             Version " << ver << endl;
+	cout << "             Version " << VERSION << endl;
 
-	cin.ignore();
-	cin.get();
+	game_point.set_color(point::C_WHITE);
+
+	pause();
 
 }
 
@@ -150,8 +153,7 @@ void game::game_over(int msg){
 
 	}
 
-	cin.ignore();
-	cin.get();
+	pause();
 	
 }
 
@@ -222,8 +224,8 @@ void game::display_score(){
 
 	cout << endl << "   Highest score : " << highest_score << endl;
 
-	cin.ignore();
-	cin.get();
+	pause();
+
 }
 
 void game::display_about(){
@@ -234,16 +236,15 @@ void game::display_about(){
 	cout << "Press W S A D to move square." << endl;
 	cout << "Press P to pause." << endl;
 	cout << endl;
-	cout << "              2048" << endl;
+	cout << "                  2048" << endl;
 	cout << endl;
 	cout << endl;
-	cout << "             By Ctj" << endl;
-	cout << "        Version 1.0.0.0" << endl;
-	cout << "          #2018-06-07#" << endl;
+	cout << "                 By Ctj" << endl;
+	cout << "             Version " << VERSION << endl;
+	cout << "                 " << DATE_ << endl;
 	cout << endl;
 
-	cin.ignore();
-	cin.get();
+	pause();
 
 }
 
@@ -253,8 +254,7 @@ void game::over(){
 
 	cout << "Thank you for playing 2048!!!" << endl;
 
-	cin.ignore();
-	cin.get();
+	pause();
 
 }
 
@@ -270,22 +270,22 @@ int game::ChooseKey()
 
 		if (ch[0] == 'W' || ch[0] == 'w') {
 
-			game_square.changesquare(KEY_UP);			//UP 2
+			game_square.changesquare(KEY_UP);			
 			isExit = true;
 
 		}else if (ch[0] == 'S' || ch[0] == 's') {
 
-			game_square.changesquare(KEY_DOWN);		//DOWN 3
+			game_square.changesquare(KEY_DOWN);		
 			isExit = true;
 
 		}else if (ch[0] == 'A' || ch[0] == 'a') {
 
-			game_square.changesquare(KEY_LEFT);		//LEFT 0
+			game_square.changesquare(KEY_LEFT);		
 			isExit = true;
 
 		}else if (ch[0] == 'D' || ch[0] == 'd') {
 
-			game_square.changesquare(KEY_RIGHT);		//RIGHT 1
+			game_square.changesquare(KEY_RIGHT);		
 			isExit = true;
 
 		}else if (ch[0] == 'P' || ch[0] == 'p') {
@@ -341,4 +341,10 @@ int game::ChooseSubItem()
 	} while (true);
 
 	return msg;
+}
+
+inline void game::pause()
+{
+	cin.ignore();
+	cin.get();
 }

@@ -108,8 +108,8 @@ void point::write(std::string str){
 }
 
 //作用：设置输出的字体颜色
-void point::set_color(int num) {
+void point::set_color(color num) {
 
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), num);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), static_cast<int>(num));
 
 }

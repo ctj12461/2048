@@ -387,9 +387,11 @@ void square::updatemap() {
 	outpoint.write(3, 19, "└");
 	outpoint.write(39, 19, "┘");
 
+	outpoint.set_color(point::CI_YELLOW);
+
 	for (int x = 4; x <= 38; x++) {    //输出上下两个边
 
-		Sleep(10);
+		Sleep(5);
 
 		outpoint.write(x, 3, "─");
 
@@ -399,13 +401,15 @@ void square::updatemap() {
 
 	for (int y = 4; y <= 18; y++) {    //输出左右两个边
 
-		Sleep(15);
+		Sleep(7);
 
 		outpoint.write(3, 22 - y, "│");
 
 		outpoint.write(39, y, "│");
 
 	}
+
+	outpoint.set_color(point::C_WHITE);
 
 	int ax = 0;
 
@@ -436,7 +440,10 @@ void square::updatemap() {
 
 	}
 
+	outpoint.set_color(point::C_RED);
 	outpoint.write(29, 21, ">>>");
+	outpoint.set_color(point::C_WHITE);
+
 }
 
 void square::Clear()

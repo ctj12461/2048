@@ -20,7 +20,7 @@ class menu
 
 		int out_sub_menu();
 
-	protected:
+	private:
 
 		point menupoint;
 
