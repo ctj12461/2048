@@ -2,9 +2,9 @@
 # 2048
 # A game of 2048
 # This project is free(open sources).
-# Version 3.0.0.0
+# Version 4.2.0.0
 # By Ctj
-# 2018-08-24
+# 2018-08-28
 # -----------
 # Functions
 # 1.Three menus
