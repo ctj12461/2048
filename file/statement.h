@@ -1,9 +1,9 @@
 /////////////////////////////////////////////////////////////
 //            2048
-//版本 Version Release 3.0.0.0
+//版本 Version Release 4.2.0.0
 //系统 OS Windows x86 x64
 //作者 Writer Ctj
-//日期 Date 2018-08-24 星期五 Friday
+//日期 Date 2018-08-28 星期五 Friday
 //自由软件（开放源码），拷贝请标明作者 Free（Open Sources）
 
 
@@ -11,8 +11,8 @@
 #define STATEMENT_H
 
 //版本
-#define VERSION "3.0.0.0"
-#define DATE_ "#2018-08-24#"
+#define VERSION "4.2.0.0"
+#define DATE_ "#2018-08-28#"
 
 #define UP 0
 #define DOWN 1
