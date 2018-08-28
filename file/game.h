@@ -45,10 +45,6 @@ class game
 
 		void pause();
 
-		void autoDisplay(int x, int y, std::string str);
-
-		void setPosition(int x, int y);
-
 	private:
 
 		square::difficulty diff;
