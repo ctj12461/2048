@@ -43,9 +43,11 @@ void game::welcome()
 	cout << "             Welcome to 2048!" << endl;
 	cout << "             Version " << VERSION << endl;
 
+	autoDisplay(3, 17, "Loading...");
+
 	game_point.set_color(point::C_WHITE);
 
-	pause();
+	cin.get();
 
 }
 
@@ -347,4 +349,40 @@ inline void game::pause()
 {
 	cin.ignore();
 	cin.get();
+}
+
+void game::autoDisplay(int x, int y, std::string str)
+{
+	setPosition(x, y);
+
+	int Space = 5;
+	
+
+	cout << "                          " << "[ " << str << " ]";
+
+	for (int i = 1; i <= 100; i++)
+	{
+		cout << "\r";
+		for (int j = x; j <= x; j++) { cout << " "; }
+		cout << "[ ";
+		game_point.set_color(point::CI_CYAN);	//设置青色
+		cout << i << "%";
+		game_point.set_color(point::C_WHITE);	//设置白色
+		cout << " ]";
+		game_point.set_color(point::CI_CYAN);	//设置青色
+		for (int j = Space; j < i; j += Space) { cout << "#"; }
+		if (i % Space == 0) { cout << "#" << flush; }
+		game_point.set_color(point::C_WHITE);	//设置白色
+		Sleep(50);
+	}
+	cout << endl;
+}
+
+void game::setPosition(int x, int y)
+{
+	HANDLE winHandle;//句柄
+	COORD pos = { static_cast<short>(x),static_cast<short>(y) };
+	winHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+	//设置光标位置 
+	SetConsoleCursorPosition(winHandle, pos);
 }
