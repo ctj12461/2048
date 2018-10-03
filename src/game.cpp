@@ -5,7 +5,7 @@
 using namespace std;
 
 game::game()
-:game_menu(), game_point(), game_square(square::DIFFICULTY_INIT), highest_score(0), diff(square::DIFFICULTY_INIT)
+:GameMenu(), GamePoint(), GameSquare(square::DIFFICULTY_INIT), HighestScore(0), Diff(square::DIFFICULTY_INIT)
 {
 }
 
@@ -15,7 +15,7 @@ void game::run(){
 
 	welcome();
 
-	first();
+	displayMainMenu();
 
 	over();
 
@@ -24,7 +24,7 @@ void game::run(){
 void game::welcome()
 {
 	
-	game_point.set_color(point::CI_CYAN);
+	GamePoint.setColor(point::CI_CYAN);
 
 	cout << endl;
 	cout << endl;	
@@ -43,27 +43,27 @@ void game::welcome()
 	cout << "             Welcome to 2048!" << endl;
 	cout << "             Version " << VERSION << endl;
 
-	autoDisplay(3, 17, "Loading...");
+	displayProgressBar(3, 17, "Loading...");
 
-	game_point.set_color(point::C_WHITE);
+	GamePoint.setColor(point::C_WHITE);
 
 	cin.get();
 
 }
 
-void game::first(){
+void game::displayMainMenu(){
 
 	int item_index = 0;
 	
 	do {
 
-		item_index = game_menu.out_first_menu();
+		item_index = GameMenu.outputMainMenu();
 
 		switch (item_index) {
 
 			case ITEM_NEW_GAME: {
 
-				second();
+				displayDifficultyChoiceMenu();
 
 				break;
 
@@ -71,7 +71,7 @@ void game::first(){
 
 			case ITEM_HIGHEST_SCORE: {
 
-				display_score();
+				displayScore();
 
 				break;
 
@@ -79,7 +79,7 @@ void game::first(){
 
 			case ITEM_ABOUT: {
 
-				display_about();
+				displayAbout();
 
 				break;
 
@@ -91,7 +91,7 @@ void game::first(){
 
 }
 
-void game::second(){
+void game::displayDifficultyChoiceMenu(){
 
 	int item_index = 0;
 
@@ -99,58 +99,58 @@ void game::second(){
 
 	do {
 
-		item_index = game_menu.out_second_menu();
+		item_index = GameMenu.outputDifficultyChoiceMenu();
 
 		if (item_index == ITEM_QUIT_SECOND) {
 			return;
 		}
 
 		if (item_index == ITEM_EASY) {
-			diff = square::DIFFICULTY_EASY;
+			Diff = square::DIFFICULTY_EASY;
 		}else if (item_index == ITEM_MIDDLE) {
-			diff = square::DIFFICULTY_MIDDLE;
+			Diff = square::DIFFICULTY_MIDDLE;
 		}else{
-			diff = square::DIFFICULTY_DIFFICULT;
+			Diff = square::DIFFICULTY_DIFFICULT;
 		}
 
-		game_square.SetDifficulty(diff);
+		GameSquare.setDifficulty(Diff);
 
-		msg = start_game();
+		msg = startGame();
 
 	} while (msg == RE_START);
 
 }
 
-int game::sub(){
+int game::displaySubMenu(){
 
-	int index = game_menu.out_sub_menu();
+	int index = GameMenu.outputSubMenu();
 
 	return index;
 }
 
-void game::game_over(int msg){
+void game::displayMessage(int msg){
 
-	int mark = game_square.get_mark();
+	int mark = GameSquare.getMark();
 
 	system("cls");
 
-	game_point.write(20, 0, "2048");
+	GamePoint.write(20, 0, "2048");
 
 	if (msg == WIN) {
 
-		game_point.write(17, 3, "YOU WIN!!!");
+		GamePoint.write(17, 3, "YOU WIN!!!");
 		cout << endl;
 		cout << "           " << setw(18) << left << "Score" << mark << endl;
-		cout << "           " << setw(18) << left << "Highest Score" << highest_score << endl;
+		cout << "           " << setw(18) << left << "Highest Score" << HighestScore << endl;
 		MessageBox(NULL, TEXT("YOU WIN!!!"), TEXT("Message"), MB_OK + MB_ICONINFORMATION);
 			
 	}
 	else {
 
-		game_point.write(18, 3, "YOU LOST!!!");
+		GamePoint.write(18, 3, "YOU LOST!!!");
 		cout << endl;
 		cout << "           " << setw(18) << left << "Score" << mark << endl;
-		cout << "           " << setw(18) << left << "Highest Score" << highest_score << endl;
+		cout << "           " << setw(18) << left << "Highest Score" << HighestScore << endl;
 		MessageBox(NULL, TEXT("YOU LOST!!!"), TEXT("Message"), MB_OK + MB_ICONINFORMATION);
 
 	}
@@ -159,33 +159,31 @@ void game::game_over(int msg){
 	
 }
 
-void game::update_highest_score(){
+void game::updateHighestScore(){
 
-	int mark = game_square.get_mark();
+	int mark = GameSquare.getMark();
 
-	if (highest_score < mark) {
+	if (HighestScore < mark) {
 
-		highest_score = mark;
+		HighestScore = mark;
 
 	}
 
 }
 
-int game::start_game(){
+int game::startGame(){
 
 	string ch;
 
 	int msg = 0;
 
-	game_square.Clear();
+	GameSquare.clear();
 
-	msg = game_run();
-
-	update_highest_score();
+	msg = gameRun();
 
 	if (msg == WIN || msg == LOST) {
 
-		game_over(msg);
+		displayMessage(msg);
 
 	}
 
@@ -193,7 +191,7 @@ int game::start_game(){
 
 }
 
-int game::game_run(){
+int game::gameRun(){
 
 	string ch = "";
 
@@ -203,37 +201,39 @@ int game::game_run(){
 
 		if (msg != CONTINUE) {
 
-			game_square.update();
-		
+			GameSquare.update();
+			
 		}
 
-		game_square.SetDifficulty(diff);
+		GameSquare.setDifficulty(Diff);
 
-		game_square.updatemap();
+		GameSquare.updateMap();
 
-		msg = ChooseKey();
+		updateHighestScore();
+
+		msg = chooseKey();
 
 	} while (msg == RUNNING || msg == CONTINUE);
 
 	return msg;
 }
 
-void game::display_score(){
+void game::displayScore(){
 
 	system("cls");
 
-	game_point.write(20, 0, "2048");
+	GamePoint.write(20, 0, "2048");
 
-	cout << endl << "   Highest score : " << highest_score << endl;
+	cout << endl << "   Highest score : " << HighestScore << endl;
 
 	pause();
 
 }
 
-void game::display_about(){
+void game::displayAbout(){
 
 	system("cls");
-	game_point.write(20, 0, "2048");
+	GamePoint.write(20, 0, "2048");
 	cout << endl;
 	cout << "Press W S A D to move square." << endl;
 	cout << "Press P to pause." << endl;
@@ -260,7 +260,7 @@ void game::over(){
 
 }
 
-int game::ChooseKey()
+int game::chooseKey()
 {
 	string ch = "";
 	int msg = 0;
@@ -272,33 +272,33 @@ int game::ChooseKey()
 
 		if (ch[0] == 'W' || ch[0] == 'w') {
 
-			game_square.changesquare(KEY_UP);			
+			GameSquare.changeSquare(KEY_UP);			
 			isExit = true;
 
 		}else if (ch[0] == 'S' || ch[0] == 's') {
 
-			game_square.changesquare(KEY_DOWN);		
+			GameSquare.changeSquare(KEY_DOWN);		
 			isExit = true;
 
 		}else if (ch[0] == 'A' || ch[0] == 'a') {
 
-			game_square.changesquare(KEY_LEFT);		
+			GameSquare.changeSquare(KEY_LEFT);		
 			isExit = true;
 
 		}else if (ch[0] == 'D' || ch[0] == 'd') {
 
-			game_square.changesquare(KEY_RIGHT);		
+			GameSquare.changeSquare(KEY_RIGHT);		
 			isExit = true;
 
 		}else if (ch[0] == 'P' || ch[0] == 'p') {
 
-			msg = ChooseSubItem();
+			msg = chooseSubItem();
 			break;
 
 		}
 
 		if (isExit) {
-			msg = game_square.isover();
+			msg = GameSquare.isOver();
 			break;
 		}
 
@@ -308,17 +308,17 @@ int game::ChooseKey()
 
 }
 
-int game::ChooseSubItem()
+int game::chooseSubItem()
 {
 	int index = 0, msg = 0;
 
 	do {
 
-		index = sub();
+		index = displaySubMenu();
 
 		if (index == CONTINUE) {
 
-			game_point.write(0, 44, "Continue");
+			GamePoint.write(0, 44, "Continue");
 
 			msg = CONTINUE;
 
@@ -351,7 +351,7 @@ inline void game::pause()
 	cin.get();
 }
 
-void game::autoDisplay(int x, int y, std::string str)
+void game::displayProgressBar(int x, int y, std::string str)
 {
 	setPosition(x, y);
 
@@ -365,14 +365,14 @@ void game::autoDisplay(int x, int y, std::string str)
 		cout << "\r";
 		for (int j = x; j <= x; j++) { cout << " "; }
 		cout << "[ ";
-		game_point.set_color(point::CI_CYAN);	//设置青色
+		GamePoint.setColor(point::CI_CYAN);	//设置青色
 		cout << i << "%";
-		game_point.set_color(point::C_WHITE);	//设置白色
+		GamePoint.setColor(point::C_WHITE);	//设置白色
 		cout << " ]";
-		game_point.set_color(point::CI_CYAN);	//设置青色
+		GamePoint.setColor(point::CI_CYAN);	//设置青色
 		for (int j = Space; j < i; j += Space) { cout << "#"; }
 		if (i % Space == 0) { cout << "#" << flush; }
-		game_point.set_color(point::C_WHITE);	//设置白色
+		GamePoint.setColor(point::C_WHITE);	//设置白色
 		Sleep(50);
 	}
 	cout << endl;

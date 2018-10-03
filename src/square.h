@@ -21,35 +21,35 @@ class square
 
 		square(difficulty diff);
 
-		void SetDifficulty(difficulty diff);
+		void setDifficulty(difficulty diff);
 		
-		void changesquare(int action);
+		void changeSquare(int action);
 		
-		int isover();
+		int isOver();
 		
 		void update();
 
-		int get_mark();
+		int getMark();
 
-		void updatemap();
+		void updateMark();
 
-		void Clear();
+		void updateMap();
+
+		void clear();
 		
 	private:
 		
-		int gamesquare[4][4];
+		int GameSquare[4][4];
 		
-		int size;
-		
-		int max;
+		int Size;
 
 		difficulty Difficulty;
 
-		int mark;
+		int Mark;
 
-		point outpoint;
+		point OutPoint;
 		
-		void arrmove(int action);
+		void arrMove(int action);
 		
 };
 

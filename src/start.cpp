@@ -3,16 +3,16 @@
 
 int start::Main(){
 
-	SetConsole();
+	setConsole();
 
-	game_2048.run();
+	Game2048.run();
 
 	return 0;
 
 	
 }
 
-void start::SetConsole(){
+void start::setConsole(){
 	system("title 2048");
 	system("mode con cols=45 lines=22");
 }

@@ -4,7 +4,7 @@
 using namespace std;
 
 point::point()
-	:x(0),y(0)
+	:X(0),Y(0)
 {
 }
 
@@ -12,19 +12,19 @@ point::~point()
 {
 }
 
-void point::setpoint(int cx, int cy) {
+void point::setPoint(int cx, int cy) {
 
-	x = cx;
+	X = cx;
 
-	y = cy;
+	Y = cy;
 
 }
 
-void point::gotopoint(){
+void point::gotoPoint(){
 
 	HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
 
-	COORD c = { static_cast<short int>(x), static_cast<short int>(y) };
+	COORD c = { static_cast<short int>(X), static_cast<short int>(Y) };
 
 	SetConsoleCursorPosition(hOut, c);
 
@@ -34,45 +34,45 @@ void point::write(int cx, int cy, int num) {
 
 	if (num == 0) {
 
-		setpoint(cx, cy);
+		setPoint(cx, cy);
 
-		gotopoint();
+		gotoPoint();
 
 		cout << "";
 
 	}
 	else if (num > 0 && num < 10) {
 
-		setpoint(cx, cy);
+		setPoint(cx, cy);
 
-		gotopoint();
+		gotoPoint();
 
 		cout << num;
 
 	}
 	else if (num >= 10 && num < 100) {
 
-		setpoint(cx - 1, cy);
+		setPoint(cx - 1, cy);
 
-		gotopoint();
+		gotoPoint();
 
 		cout << num;
 
 	}
 	else if (num >= 100 && num < 1000) {
 
-		setpoint(cx - 1, cy);
+		setPoint(cx - 1, cy);
 
-		gotopoint();
+		gotoPoint();
 
 		cout << num;
 
 	}
 	else if (num >= 1000 && num < 10000) {
 
-		setpoint(cx - 2, cy);
+		setPoint(cx - 2, cy);
 
-		gotopoint();
+		gotoPoint();
 
 		cout << num;
 
@@ -82,9 +82,9 @@ void point::write(int cx, int cy, int num) {
 
 void point::write(int cx, int cy, std::string str){
 
-		setpoint(cx, cy);
+		setPoint(cx, cy);
 
-		gotopoint();
+		gotoPoint();
 
 		cout << str;
 
@@ -108,7 +108,7 @@ void point::write(std::string str){
 }
 
 //作用：设置输出的字体颜色
-void point::set_color(color num) {
+void point::setColor(color num) {
 
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), static_cast<int>(num));
 

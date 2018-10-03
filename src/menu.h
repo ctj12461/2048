@@ -14,17 +14,17 @@ class menu
 
 		menu();
 
-		int out_first_menu();
+		int outputMainMenu();
 
-		int out_second_menu();
+		int outputDifficultyChoiceMenu();
 
-		int out_sub_menu();
+		int outputSubMenu();
 
 	private:
 
-		point menupoint;
+		point MenuPoint;
 
-		int out_menu(std::string arr[], int highest, int left, int right, int top);
+		int outMenu(std::string arr[], int highest, int left, int right, int top);
 };
 
 #endif

@@ -29,17 +29,17 @@ class point
 
 		void write(std::string str);
 
-		void set_color(color num);
+		void setColor(color num);
 
 	private:
 
-		int x;
+		int X;
 
-		int y;
+		int Y;
 
-		void gotopoint();
+		void gotoPoint();
 
-		void setpoint(int cx, int cy);
+		void setPoint(int cx, int cy);
 
 };
 

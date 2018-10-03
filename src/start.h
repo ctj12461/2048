@@ -9,11 +9,11 @@ class start
 {
 	public:
 
-		game game_2048;
+		game Game2048;
 
 		int Main();
 
-		void SetConsole();
+		void setConsole();
 
 };
 
