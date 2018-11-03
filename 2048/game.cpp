@@ -4,6 +4,8 @@
 
 using namespace std;
 
+//
+
 game::game()
 :GameMenu(), GamePoint(), GameSquare(square::DIFFICULTY_INIT), HighestScore(0), Diff(square::DIFFICULTY_INIT)
 {
@@ -243,7 +245,7 @@ void game::displayAbout(){
 	cout << endl;
 	cout << "                 By Ctj" << endl;
 	cout << "             Version " << VERSION << endl;
-	cout << "                 " << DATE_ << endl;
+	cout << "               " << DATE_ << endl;
 	cout << endl;
 
 	pause();
