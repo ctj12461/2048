@@ -11,8 +11,8 @@
 #define STATEMENT_H
 
 //°æ±¾
-#define VERSION "3.0.0.0"
-#define DATE_ "#2018-08-24#"
+#define VERSION "5.4.0.0"
+#define DATE_ "2018-11-3"
 
 #define UP 0
 #define DOWN 1

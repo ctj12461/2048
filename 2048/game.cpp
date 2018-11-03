@@ -245,7 +245,7 @@ void game::displayAbout(){
 	cout << endl;
 	cout << "                 By Ctj" << endl;
 	cout << "             Version " << VERSION << endl;
-	cout << "                 " << DATE_ << endl;
+	cout << "               " << DATE_ << endl;
 	cout << endl;
 
 	pause();
