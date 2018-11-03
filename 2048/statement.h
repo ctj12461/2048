@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////
 //            2048
-//版本 Version Release 3.0.0.0
+//版本 Version Release 5.4.0.0
 //系统 OS Windows x86 x64
 //作者 Writer Ctj
 //日期 Date 2018-08-24 星期五 Friday
@@ -33,7 +33,8 @@
 #define ITEM_EASY 1
 #define ITEM_MIDDLE 2
 #define ITEM_DIFFICULT 3
-#define ITEM_QUIT_SECOND 4
+#define ITEM_INIFNITE 4
+#define ITEM_QUIT_SECOND 5
 
 //游戏结果
 #define RUNNING 0
