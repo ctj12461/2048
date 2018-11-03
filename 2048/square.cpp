@@ -21,8 +21,7 @@ square::square(difficulty diff)
 	clear();
 }
 
-void square::setDifficulty(difficulty diff)
-{
+void square::setDifficulty(difficulty diff){
 	Difficulty = diff;
 }
 
@@ -42,7 +41,7 @@ int square::isOver(){
 	{
 		for (int j = 0; j < COL; ++j)
 		{
-			if (GameSquare[i][j] == diffNum)
+			if (diffNum != -1 && GameSquare[i][j] == diffNum)
 			{
 				return WIN;
 			}
@@ -388,6 +387,15 @@ void square::updateMap() {
 			if (GameSquare[ax][ay]) {
 
 				OutPoint.write(x, y, GameSquare[ax][ay]);
+
+				OutPoint.write(x - 3, y - 1, "©°");//×óÉÏ½Ç
+				OutPoint.write(x - 2, y - 1, "©¤©¤©¤©¤");//ÉÏ
+				OutPoint.write(x + 2, y - 1, "©´");//ÓÒÉÏ½Ç
+				OutPoint.write(x + 2, y, "©¦");//ÓÒ
+				OutPoint.write(x + 2, y + 1, "©¼");//ÓÒÏÂ½Ç
+				OutPoint.write(x - 2, y + 1, "©¤©¤©¤©¤");//ÏÂ
+				OutPoint.write(x - 3, y + 1, "©¸");//×óÏÂ½Ç
+				OutPoint.write(x - 3, y, "©¦");//×ó
 
 			}
 			else {

@@ -34,14 +34,15 @@ int menu::outputMainMenu(){
 //				 Easy(2048)
 //				Middle(8192)
 //			  Difficult(65536)
+//				Inifnite(¡Þ)
 //				  Quit
 int menu::outputDifficultyChoiceMenu(){
 
-	string DifficultChoiceMenu[5] = { "Difficulty Choice Menu","Easy(2048)","Middle(8192)","Difficult(65536)","Quit" };
+	string DifficultChoiceMenu[6] = { "Difficulty Choice Menu","Easy(2048)","Middle(8192)","Difficult(65536)","Inifnite(¡Þ)","Quit" };
 
 	int item = 0;
 
-	item = outMenu(DifficultChoiceMenu, 4, 0, 44, 3);
+	item = outMenu(DifficultChoiceMenu, 5, 0, 44, 3);
 
 	return item;
 

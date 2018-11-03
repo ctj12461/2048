@@ -45,7 +45,7 @@ void game::welcome()
 	cout << "             Welcome to 2048!" << endl;
 	cout << "             Version " << VERSION << endl;
 
-	displayProgressBar(3, 17, "Loading...");
+	//displayProgressBar(3, 17, "Loading...");
 
 	GamePoint.setColor(point::C_WHITE);
 
@@ -109,10 +109,12 @@ void game::displayDifficultyChoiceMenu(){
 
 		if (item_index == ITEM_EASY) {
 			Diff = square::DIFFICULTY_EASY;
-		}else if (item_index == ITEM_MIDDLE) {
+		} else if (item_index == ITEM_MIDDLE) {
 			Diff = square::DIFFICULTY_MIDDLE;
-		}else{
+		} else if (item_index == ITEM_DIFFICULT){
 			Diff = square::DIFFICULTY_DIFFICULT;
+		} else {
+			Diff = square::DIFFICULTY_INFINITE;
 		}
 
 		GameSquare.setDifficulty(Diff);
