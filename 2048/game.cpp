@@ -45,7 +45,7 @@ void game::welcome()
 	cout << "             Welcome to 2048!" << endl;
 	cout << "             Version " << VERSION << endl;
 
-	//displayProgressBar(3, 17, "Loading...");
+	displayProgressBar(3, 17, "Loading...");
 
 	GamePoint.setColor(point::C_WHITE);
 
