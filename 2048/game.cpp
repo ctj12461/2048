@@ -4,6 +4,8 @@
 
 using namespace std;
 
+//
+
 game::game()
 :GameMenu(), GamePoint(), GameSquare(square::DIFFICULTY_INIT), HighestScore(0), Diff(square::DIFFICULTY_INIT)
 {
