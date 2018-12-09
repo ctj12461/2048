@@ -4,7 +4,6 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <Windows.h>
 #include "menu.h"
 #include "statement.h"
 #include "square.h"

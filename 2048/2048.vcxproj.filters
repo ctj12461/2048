@@ -75,9 +75,6 @@
     <Image Include="icon1.ico">
       <Filter>资源文件</Filter>
     </Image>
-    <Image Include="C:\Users\12461\Desktop\2048icon.png">
-      <Filter>资源文件</Filter>
-    </Image>
     <Image Include="2048icon.ico">
       <Filter>资源文件</Filter>
     </Image>

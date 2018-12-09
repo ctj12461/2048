@@ -1,6 +1,8 @@
-﻿  2048.cpp
+﻿  stdafx.cpp
+  2048.cpp
   game.cpp
   menu.cpp
+  point.cpp
   square.cpp
   start.cpp
   正在生成代码

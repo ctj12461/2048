@@ -145,9 +145,7 @@ void game::displayMessage(int msg){
 		GamePoint.write(17, 3, "YOU WIN!!!");
 		cout << endl;
 		cout << "           " << setw(18) << left << "Score" << mark << endl;
-		cout << "           " << setw(18) << left << "Highest Score" << HighestScore << endl;
-		MessageBox(NULL, TEXT("YOU WIN!!!"), TEXT("Message"), MB_OK + MB_ICONINFORMATION);
-			
+		cout << "           " << setw(18) << left << "Highest Score" << HighestScore << endl;	
 	}
 	else {
 
@@ -155,8 +153,6 @@ void game::displayMessage(int msg){
 		cout << endl;
 		cout << "           " << setw(18) << left << "Score" << mark << endl;
 		cout << "           " << setw(18) << left << "Highest Score" << HighestScore << endl;
-		MessageBox(NULL, TEXT("YOU LOST!!!"), TEXT("Message"), MB_OK + MB_ICONINFORMATION);
-
 	}
 
 	pause();
@@ -245,9 +241,8 @@ void game::displayAbout(){
 	cout << "                  2048" << endl;
 	cout << endl;
 	cout << endl;
-	cout << "                 By Ctj" << endl;
 	cout << "             Version " << VERSION << endl;
-	cout << "               " << DATE_ << endl;
+	cout << "      Copyright (C) 2018 Justin Chen." << endl;
 	cout << endl;
 
 	pause();
