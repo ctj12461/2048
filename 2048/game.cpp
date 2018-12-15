@@ -160,7 +160,7 @@ void game::displayMessage(int msg){
 		cout << "           " << setw(18) << left << "Highest Score" << HighestScore << endl;
 	}
 
-	pause();
+	tools::pause();
 	
 }
 
@@ -231,13 +231,13 @@ void game::displayScore(){
 
 	cout << endl << "   Highest score : " << HighestScore << endl;
 
-	pause();
+	tools::pause();
 
 }
 
 void game::displayAbout(){
 
-	system("cls");
+	tools::clear();
 	GamePoint.write(20, 0, "2048");
 	cout << endl;
 	cout << "How to use:" << endl;
@@ -263,7 +263,7 @@ void game::over(){
 
 	cout << "Thank you for playing 2048!!!" << endl;
 
-	pause();
+	tools::pause();
 
 }
 
