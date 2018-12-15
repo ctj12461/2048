@@ -156,6 +156,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
+    <ClInclude Include="key.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="point.h" />
     <ClInclude Include="resource.h" />
@@ -168,6 +169,7 @@
   <ItemGroup>
     <ClCompile Include="2048.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="key.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="point.cpp" />
     <ClCompile Include="square.cpp" />
