@@ -8,6 +8,7 @@
 #include "statement.h"
 #include "square.h"
 #include "key.h"
+#include "tools.h"
 
 class game
 {
@@ -25,9 +26,7 @@ public:
 	void displayScore();
 	void displayAbout();
 	void over();
-	void pause();
 	void displayProgressBar(int x, int y, std::string str);
-	void setPosition(int x, int y);
 private:
 	square::difficulty Diff;
 	menu GameMenu;

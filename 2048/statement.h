@@ -4,6 +4,13 @@
 //This software is free and open source.
 //See more in README.md and LICENSE.
 
+//#define FLAG
+
+#ifdef FLAG
+#define Linux
+#else
+#define Windows
+#endif
 
 #ifndef STATEMENT_H
 #define STATEMENT_H

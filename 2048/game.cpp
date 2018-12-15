@@ -253,7 +253,7 @@ void game::displayAbout(){
 	cout << "                " << __DATE__ << endl;
 	cout << endl;
 
-	pause();
+	tools::pause();
 
 }
 
@@ -267,15 +267,9 @@ void game::over(){
 
 }
 
-inline void game::pause()
-{
-	cin.ignore();
-	cin.get();
-}
-
 void game::displayProgressBar(int x, int y, std::string str)
 {
-	setPosition(x, y);
+	tools::setPosition(x, y);
 
 	int Space = 5;
 	
@@ -298,13 +292,4 @@ void game::displayProgressBar(int x, int y, std::string str)
 		Sleep(50);
 	}
 	cout << endl;
-}
-
-void game::setPosition(int x, int y)
-{
-	HANDLE winHandle;//句柄
-	COORD pos = { static_cast<short>(x),static_cast<short>(y) };
-	winHandle = GetStdHandle(STD_OUTPUT_HANDLE);
-	//设置光标位置 
-	SetConsoleCursorPosition(winHandle, pos);
 }
