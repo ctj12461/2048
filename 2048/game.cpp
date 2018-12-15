@@ -4,10 +4,15 @@
 
 using namespace std;
 
-//
-
 game::game()
-:GameMenu(), GamePoint(), GameSquare(square::DIFFICULTY_INIT), HighestScore(0), Diff(square::DIFFICULTY_INIT)
+	:
+	GameMenu(), 
+	GamePoint(), 
+	GameSquare(square::DIFFICULTY_INIT), 
+	GameKeyChooser(GameSquare, GameMenu),
+	HighestScore(0), 
+	Diff(square::DIFFICULTY_INIT)
+
 {
 }
 
@@ -145,9 +150,7 @@ void game::displayMessage(int msg){
 		GamePoint.write(17, 3, "YOU WIN!!!");
 		cout << endl;
 		cout << "           " << setw(18) << left << "Score" << mark << endl;
-		cout << "           " << setw(18) << left << "Highest Score" << HighestScore << endl;
-		MessageBox(NULL, TEXT("YOU WIN!!!"), TEXT("Message"), MB_OK + MB_ICONINFORMATION);
-			
+		cout << "           " << setw(18) << left << "Highest Score" << HighestScore << endl;	
 	}
 	else {
 
@@ -155,8 +158,6 @@ void game::displayMessage(int msg){
 		cout << endl;
 		cout << "           " << setw(18) << left << "Score" << mark << endl;
 		cout << "           " << setw(18) << left << "Highest Score" << HighestScore << endl;
-		MessageBox(NULL, TEXT("YOU LOST!!!"), TEXT("Message"), MB_OK + MB_ICONINFORMATION);
-
 	}
 
 	pause();
@@ -215,7 +216,7 @@ int game::gameRun(){
 
 		updateHighestScore();
 
-		msg = chooseKey();
+		msg = GameKeyChooser.chooseKey();
 
 	} while (msg == RUNNING || msg == CONTINUE);
 
@@ -239,15 +240,17 @@ void game::displayAbout(){
 	system("cls");
 	GamePoint.write(20, 0, "2048");
 	cout << endl;
+	cout << "How to use:" << endl;
 	cout << "Press W S A D to move square." << endl;
 	cout << "Press P to pause." << endl;
 	cout << endl;
-	cout << "                  2048" << endl;
+	cout << "Copyright:" << endl;
+	cout << "                   2048" << endl;
 	cout << endl;
 	cout << endl;
-	cout << "                 By Ctj" << endl;
-	cout << "             Version " << VERSION << endl;
-	cout << "               " << DATE_ << endl;
+	cout << "               Version " << VERSION << endl;
+	cout << "      Copyright (C) 2018 Justin Chen." << endl;
+	cout << "                " << __DATE__ << endl;
 	cout << endl;
 
 	pause();
@@ -262,91 +265,6 @@ void game::over(){
 
 	pause();
 
-}
-
-int game::chooseKey()
-{
-	string ch = "";
-	int msg = 0;
-	bool isExit = false;
-
-	do {
-
-		cin >> ch;
-
-		if (ch[0] == 'W' || ch[0] == 'w') {
-
-			GameSquare.changeSquare(KEY_UP);			
-			isExit = true;
-
-		}else if (ch[0] == 'S' || ch[0] == 's') {
-
-			GameSquare.changeSquare(KEY_DOWN);		
-			isExit = true;
-
-		}else if (ch[0] == 'A' || ch[0] == 'a') {
-
-			GameSquare.changeSquare(KEY_LEFT);		
-			isExit = true;
-
-		}else if (ch[0] == 'D' || ch[0] == 'd') {
-
-			GameSquare.changeSquare(KEY_RIGHT);		
-			isExit = true;
-
-		}else if (ch[0] == 'P' || ch[0] == 'p') {
-
-			msg = chooseSubItem();
-			break;
-
-		}
-
-		if (isExit) {
-			msg = GameSquare.isOver();
-			break;
-		}
-
-	} while (true);
-
-	return msg;
-
-}
-
-int game::chooseSubItem()
-{
-	int index = 0, msg = 0;
-
-	do {
-
-		index = displaySubMenu();
-
-		if (index == CONTINUE) {
-
-			GamePoint.write(0, 44, "Continue");
-
-			msg = CONTINUE;
-
-			break;
-
-		}
-		else if (index == RE_START) {
-
-			msg = RE_START;
-
-			break;
-
-		}
-		else if (index == QUIT) {
-
-			msg = QUIT;
-
-			break;
-
-		}
-
-	} while (true);
-
-	return msg;
 }
 
 inline void game::pause()

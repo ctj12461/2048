@@ -114,7 +114,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>Create</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -135,7 +135,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>Create</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -156,6 +156,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
+    <ClInclude Include="key.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="point.h" />
     <ClInclude Include="resource.h" />
@@ -168,6 +169,7 @@
   <ItemGroup>
     <ClCompile Include="2048.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="key.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="point.cpp" />
     <ClCompile Include="square.cpp" />
@@ -184,7 +186,6 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="2048icon.ico" />
-    <Image Include="C:\Users\12461\Desktop\2048icon.png" />
     <Image Include="icon1.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

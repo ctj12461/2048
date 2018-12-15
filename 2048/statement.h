@@ -1,18 +1,15 @@
 /////////////////////////////////////////////////////////////
 //            2048
-//版本 Version Release 5.4.0.0
-//系统 OS Windows x86 x64
-//作者 Writer Ctj
-//日期 Date 2018-08-24 星期五 Friday
-//自由软件（开放源码），拷贝请标明作者 Free（Open Sources）
+//Copyright (C) 2018 Justin Chen
+//This software is free and open source.
+//See more in README.md and LICENSE.
 
 
 #ifndef STATEMENT_H
 #define STATEMENT_H
 
 //版本
-#define VERSION "5.4.0.0"
-#define DATE_ "2018-11-3"
+#define VERSION "5.4.1.0"
 
 #define UP 0
 #define DOWN 1

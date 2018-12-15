@@ -10,21 +10,14 @@
 
 class menu
 {
-	public:
-
-		menu();
-
-		int outputMainMenu();
-
-		int outputDifficultyChoiceMenu();
-
-		int outputSubMenu();
-
-	private:
-
-		point MenuPoint;
-
-		int outMenu(std::string arr[], int highest, int left, int right, int top);
+public:
+	menu();
+	int outputMainMenu();
+	int outputDifficultyChoiceMenu();
+	int outputSubMenu();
+private:
+	point MenuPoint;
+	int outMenu(std::string arr[], int highest, int left, int right, int top);
 };
 
 #endif
