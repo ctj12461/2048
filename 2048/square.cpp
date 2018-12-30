@@ -341,7 +341,7 @@ void square::arrMove(int action){   //一行或一列上元素的移动
 
 void square::updateMap() {
 
-	system("cls");
+	tools::clear();
 
 	OutPoint.write(20, 0, "2048");
 	OutPoint.write(0, 20, "Press W S A D to move square.\n");

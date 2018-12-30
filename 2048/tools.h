@@ -4,7 +4,7 @@
 #include "statement.h"
 
 #ifdef Linux
-
+#include <unistd.h>
 #endif // Linux
 
 #ifdef Windows
@@ -22,6 +22,7 @@ public:
 	static void clear();
 	static void setPosition(int x, int y);
 	static void resize(int col, int row);
+	static void sleepFor(size_t time);
 private:
 	tools();
 	~tools();

@@ -81,7 +81,7 @@ int menu::outMenu(string arr[], int highest, int left, int right, int top) {
 
 	int input_index = 0;
 
-	system("cls");
+	tools::clear();
 
 	MenuPoint.write(20, 0, "2048");
 

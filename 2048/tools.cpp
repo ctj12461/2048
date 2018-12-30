@@ -16,11 +16,17 @@ void tools::clear(){
 }
 
 void tools::setPosition(int x, int y){
-
+	auto sx = to_string(x);
+	auto sy = to_string(y);
+	cout << "\033[" + sy + ";" + sx + "H";
 }
 
 void tools::resize(int col, int row){
+	
+}
 
+void tools::sleepFor(int time){
+	sleep(time / 1000);
 }
 
 #endif // Linux
@@ -48,6 +54,11 @@ void tools::resize(int col, int row) {
 	s >> r;
 	system(("mode con cols=" + c + " lines=" + r).c_str());
 }
+
+void tools::sleepFor(size_t time) {
+	Sleep(time);
+}
+
 #endif // Windows
 
 

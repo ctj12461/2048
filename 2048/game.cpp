@@ -141,7 +141,7 @@ void game::displayMessage(int msg){
 
 	int mark = GameSquare.getMark();
 
-	system("cls");
+	tools::clear();
 
 	GamePoint.write(20, 0, "2048");
 
@@ -225,7 +225,7 @@ int game::gameRun(){
 
 void game::displayScore(){
 
-	system("cls");
+	tools::clear();
 
 	GamePoint.write(20, 0, "2048");
 
@@ -259,7 +259,7 @@ void game::displayAbout(){
 
 void game::over(){
 
-	system("cls");
+	tools::clear();
 
 	cout << "Thank you for playing 2048!!!" << endl;
 
