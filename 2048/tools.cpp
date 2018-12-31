@@ -16,16 +16,14 @@ void tools::clear(){
 }
 
 void tools::setPosition(int x, int y){
-	auto sx = to_string(x);
-	auto sy = to_string(y);
-	cout << "\033[" + sy + ";" + sx + "H";
+	cout << "\033[" + to_string(y) + ";" + to_string(x) + "H";
 }
 
 void tools::resize(int col, int row){
 	
 }
 
-void tools::sleepFor(int time){
+void tools::sleepFor(size_t time){
 	sleep(time / 1000);
 }
 

@@ -7,6 +7,20 @@ In this game, you can press W, S, A or D to move those numbers in the square. Wh
 When the highest number in the square more than the difficulty, you win. If those numbers can't move any more, you lose the game.
 You also can see the highest score by choosing the item of main menu.
 - - - -
+## Usage
+If you are using Linux, the Makefile is in the folder 2048. You can use ```make``` to compile program. (Makefile is only for Linux.)
+If you are using Windows, we don't provide the Makefile. You can use VS 2017. (If you have.)
+Remember to change the flag in statement.h :
+```
+#define FLAG
+#ifdef FLAG
+#define Linux
+#else
+#define Windows
+#endif
+```
+Add "//" to define or undefine FLAG.
+- - - - 
 ## Copyright
 This is a free and open source software. See more in LICENSE.
 Copyright © 2018 Justin Chen.

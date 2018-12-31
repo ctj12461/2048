@@ -356,7 +356,7 @@ void square::updateMap() {
 
 	for (int x = 4; x <= 38; x++) {    //输出上下两个边
 
-		Sleep(5);
+		tools::sleepFor(5);
 
 		OutPoint.write(x, 3, "─");
 
@@ -366,7 +366,7 @@ void square::updateMap() {
 
 	for (int y = 4; y <= 18; y++) {    //输出左右两个边
 
-		Sleep(7);
+		tools::sleepFor(7);
 
 		OutPoint.write(3, 22 - y, "│");
 

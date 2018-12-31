@@ -289,7 +289,7 @@ void game::displayProgressBar(int x, int y, std::string str)
 		for (int j = Space; j < i; j += Space) { cout << "#"; }
 		if (i % Space == 0) { cout << "#" << flush; }
 		GamePoint.setColor(point::C_WHITE);	//ÉèÖÃ°×É«
-		Sleep(50);
+		tools::sleepFor(50);
 	}
 	cout << endl;
 }

@@ -129,8 +129,8 @@ void point::setColor(color num) {
 		break;
 	case C_CYAN:
 		Colorstr = "\033[0;36;40m";
-		break
-	case C_PUPRLE:
+		break;
+	case C_PURPLE:
 		Colorstr = "\033[0;35;40m";
 		break;
 	case C_WHITE:
@@ -154,11 +154,8 @@ void point::setColor(color num) {
 	case CI_CYAN:
 		Colorstr = "\033[1;36;40m";
 		break;
-	case CI_PUPRLE:
+	case CI_PURPLE:
 		Colorstr = "\033[1;35;40m";
-		break;
-	case CI_WHITE:
-		Colorstr = "\033[1;30;40m";
 		break;
 	}
 }
