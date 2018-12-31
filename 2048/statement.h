@@ -16,7 +16,7 @@
 #define STATEMENT_H
 
 //°æ±¾
-#define VERSION "6.0.0.2"
+#define VERSION "6.1.0.5"
 
 #define UP 0
 #define DOWN 1
