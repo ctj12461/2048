@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "game.h"
+#include "tools.h"
 
 class start
 {

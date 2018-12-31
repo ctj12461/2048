@@ -141,7 +141,7 @@ void game::displayMessage(int msg){
 
 	int mark = GameSquare.getMark();
 
-	system("cls");
+	tools::clear();
 
 	GamePoint.write(20, 0, "2048");
 
@@ -160,7 +160,7 @@ void game::displayMessage(int msg){
 		cout << "           " << setw(18) << left << "Highest Score" << HighestScore << endl;
 	}
 
-	pause();
+	tools::pause();
 	
 }
 
@@ -225,19 +225,19 @@ int game::gameRun(){
 
 void game::displayScore(){
 
-	system("cls");
+	tools::clear();
 
 	GamePoint.write(20, 0, "2048");
 
 	cout << endl << "   Highest score : " << HighestScore << endl;
 
-	pause();
+	tools::pause();
 
 }
 
 void game::displayAbout(){
 
-	system("cls");
+	tools::clear();
 	GamePoint.write(20, 0, "2048");
 	cout << endl;
 	cout << "How to use:" << endl;
@@ -253,29 +253,23 @@ void game::displayAbout(){
 	cout << "                " << __DATE__ << endl;
 	cout << endl;
 
-	pause();
+	tools::pause();
 
 }
 
 void game::over(){
 
-	system("cls");
+	tools::clear();
 
 	cout << "Thank you for playing 2048!!!" << endl;
 
-	pause();
+	tools::pause();
 
-}
-
-inline void game::pause()
-{
-	cin.ignore();
-	cin.get();
 }
 
 void game::displayProgressBar(int x, int y, std::string str)
 {
-	setPosition(x, y);
+	tools::setPosition(x, y);
 
 	int Space = 5;
 	
@@ -295,16 +289,7 @@ void game::displayProgressBar(int x, int y, std::string str)
 		for (int j = Space; j < i; j += Space) { cout << "#"; }
 		if (i % Space == 0) { cout << "#" << flush; }
 		GamePoint.setColor(point::C_WHITE);	//设置白色
-		Sleep(50);
+		tools::sleepFor(50);
 	}
 	cout << endl;
-}
-
-void game::setPosition(int x, int y)
-{
-	HANDLE winHandle;//句柄
-	COORD pos = { static_cast<short>(x),static_cast<short>(y) };
-	winHandle = GetStdHandle(STD_OUTPUT_HANDLE);
-	//设置光标位置 
-	SetConsoleCursorPosition(winHandle, pos);
 }

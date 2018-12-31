@@ -22,16 +22,14 @@ void point::setPoint(int cx, int cy) {
 
 void point::gotoPoint(){
 
-	HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
-
-	COORD c = { static_cast<short int>(X), static_cast<short int>(Y) };
-
-	SetConsoleCursorPosition(hOut, c);
+	tools::setPosition(X, Y);
 
 }
 
 void point::write(int cx, int cy, int num) {
-
+#ifdef Linux
+	cout << Colorstr;
+#endif // Linux
 	if (num == 0) {
 
 		setPoint(cx, cy);
@@ -85,12 +83,17 @@ void point::write(int cx, int cy, std::string str){
 		setPoint(cx, cy);
 
 		gotoPoint();
-
+#ifdef Linux
+		cout << Colorstr;
+#endif // Linux
 		cout << str;
 
 }
 
 void point::write(int num,bool is_out_endl){
+#ifdef Linux
+	cout << Colorstr;
+#endif // Linux
 
 	cout << num;
 
@@ -107,9 +110,64 @@ void point::write(std::string str){
 	cout << str;
 }
 
+#ifdef Linux
+//作用：设置输出的字体颜色
+void point::setColor(color num) {
+	switch (num)
+	{
+	case C_RED:
+		Colorstr = "\033[0;31;40m";
+		break;
+	case C_GREEN:
+		Colorstr = "\033[0;32;40m";
+		break;
+	case C_BLUE:
+		Colorstr = "\033[0;34;40m";
+		break;
+	case C_YELLOW:
+		Colorstr = "\033[0;33;40m";
+		break;
+	case C_CYAN:
+		Colorstr = "\033[0;36;40m";
+		break;
+	case C_PURPLE:
+		Colorstr = "\033[0;35;40m";
+		break;
+	case C_WHITE:
+		Colorstr = "\033[0;37;40m";
+		break;
+	case C_BLACK:
+		Colorstr = "\033[0;30;40m";
+		break;
+	case CI_RED:
+		Colorstr = "\033[1;31;40m";
+		break;
+	case CI_GREEN:
+		Colorstr = "\033[1;32;40m";
+		break;
+	case CI_BLUE:
+		Colorstr = "\033[1;34;40m";
+		break;
+	case CI_YELLOW:
+		Colorstr = "\033[1;33;40m";
+		break;
+	case CI_CYAN:
+		Colorstr = "\033[1;36;40m";
+		break;
+	case CI_PURPLE:
+		Colorstr = "\033[1;35;40m";
+		break;
+	}
+}
+
+#endif
+
+#ifdef Windows
 //作用：设置输出的字体颜色
 void point::setColor(color num) {
 
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), static_cast<int>(num));
 
 }
+
+#endif

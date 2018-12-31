@@ -165,6 +165,7 @@
     <ClInclude Include="statement.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="tools.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="2048.cpp" />
@@ -180,6 +181,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="tools.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2048.rc" />

@@ -2,7 +2,7 @@
 #define SQUARE_H
 
 #include <iostream>
-#include <Windows.h>
+#include "tools.h"
 #include <ctime>
 #include <cstdlib>
 #include "statement.h"

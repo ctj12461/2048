@@ -3,6 +3,8 @@
 
 int start::Main(){
 
+	tools::clear();
+
 	setConsole();
 
 	Game2048.run();
@@ -13,6 +15,5 @@ int start::Main(){
 }
 
 void start::setConsole(){
-	system("title 2048");
-	system("mode con cols=45 lines=22");
+	tools::resize(45, 22);
 }

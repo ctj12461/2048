@@ -2,7 +2,8 @@
 #define POINT_H
 
 #include <iostream>
-#include <Windows.h>
+#include "tools.h"
+#include "statement.h"
 #include <string>
 
 class point
@@ -28,6 +29,9 @@ private:
 	int Y;
 	void gotoPoint();
 	void setPoint(int cx, int cy);
+#ifdef Linux
+	std::string Colorstr;
+#endif // Linux
 
 };
 

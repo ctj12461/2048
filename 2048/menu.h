@@ -2,7 +2,7 @@
 #define MENU_H
 
 #include <iostream>
-#include <Windows.h>
+#include "tools.h"
 #include <iostream>
 #include <string>
 #include "point.h"
